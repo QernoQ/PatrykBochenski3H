@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="POST">
+        <input type="text" name="type" placeholder="typ działania (+,-,*,/)" />
+        <input type="number" name="l1" placeholder="wpisz pierwszą liczbę" />
+        <input type="number" name="l2" placeholder="wpisz drugą liczbę" />
+        <input type="submit" value="Oblicz" />
+    </form>
+    <div class="wynik"></div>
+    <script>
+        var wynik = 0;
+        function plus(a, b){
+            wynik = a + b;
+            diw.textContent = `suma liczb wynosi ${wynik}`;
+        }
+
+        function minus(a, b){
+            wynik = a - b;
+            diw.textContent = `różnica liczb wynosi ${wynik}`;
+        }
+
+        function gwiazdka(a, b){
+            wynik = a * b;
+            diw.textContent = `iloczyn liczb wynosi ${wynik}`;
+        }
+
+        function slash(a, b){
+            wynik = a / b;
+            diw.textContent = `iloraz liczb wynosi ${wynik}`;
+        }
+
+        const formularz = document.querySelector('form');
+        const diw = document.querySelector('div.wynik');
+        formularz.addEventListener('submit', (e)=>{
+            e.preventDefault();
+            const t = document.querySelector('input[name= "type"]').value;
+            const a = document.querySelector('input[name= "l1"]').value * 1;
+            const b = document.querySelector('input[name= "l2"]').value * 1;
+            
+            switch (t) {
+                case '+':
+                    plus(a,b);
+                    break;
+                case '-':
+                    minus(a,b);
+                    break;
+                case '*':
+                    gwiazdka(a,b);
+                    break;
+                case '/':
+                    slash(a,b);
+                    break;
+                default:
+                    diw.textContent = `niepoprawny typ`;
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>
