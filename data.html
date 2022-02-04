@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class="zegarek"></div>
+<script>
+const divZ = document.querySelector('.zegarek');
+const dzis = new Date();
+const endyear = new Date(2022,5,24);
+const sekundy = 1000*60*60*24;
+let ileDni = endyear - dzis;
+divZ.textContent = Math.ceil(ileDni / sekundy);
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
